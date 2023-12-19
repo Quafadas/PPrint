@@ -1,13 +1,16 @@
 import mill._, scalalib._, scalajslib._, scalanativelib._, publish._
 import $ivy.`de.tototec::de.tobiasroeser.mill.vcs.version::0.4.0`
 import $ivy.`com.github.lolgab::mill-mima::0.0.23`
+import $ivy.`io.github.quafadas::mill_scala3_site_mdoc::0.0.5`
 import de.tobiasroeser.mill.vcs.version.VcsVersion
 import com.github.lolgab.mill.mima._
+import mill.site.SiteModule
+import mill.api.Result
 
 val dottyCommunityBuildVersion = sys.props.get("dottyVersion").toList
 
 val scalaVersions =
-  Seq("2.12.16", "2.13.8", "2.11.12", "3.1.3") ++ dottyCommunityBuildVersion
+  Seq("2.12.16", "2.13.8", "2.11.12", "3.3.1") ++ dottyCommunityBuildVersion
 
 trait PPrintModule
   extends CrossScalaModule with PublishModule with PlatformScalaModule with Mima {
@@ -62,4 +65,10 @@ object pprint extends Module {
     def scalaNativeVersion = "0.4.5"
     object test extends ScalaNativeTests with PPrintTestModule
   }
+}
+
+object site extends SiteModule {
+
+  override def moduleDeps = Seq(pprint.jvm("3.3.1"))
+
 }

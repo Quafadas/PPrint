@@ -1,5 +1,9 @@
 name: ci
 
+permissions:
+  id-token: write
+  pages: write
+
 on:
   push:
     branches:
@@ -80,3 +84,43 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           draft: false
+
+  site:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'temurin'
+      - uses: actions/checkout@v3
+      - run: ./mill site.siteGen
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - uses: actions/upload-artifact@v3
+        with:
+          name: page
+          path: out/site/siteGen.dest/
+          if-no-files-found: error
+
+  deploy:
+    needs: site
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${\{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: page
+        path: .
+    - uses: actions/configure-pages@v4
+    - uses: actions/upload-pages-artifact@v2
+      with:
+        path: .
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v3
