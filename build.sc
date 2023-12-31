@@ -82,4 +82,5 @@ object site extends SiteModule {
     s"-social-links:github::${pprint.jvm("3.3.1").pomSettings().url}"
   )
 
+
 }
