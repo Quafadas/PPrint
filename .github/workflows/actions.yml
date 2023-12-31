@@ -21,7 +21,10 @@ jobs:
       matrix:
         java: ['8', '17']
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -32,9 +35,10 @@ jobs:
   check-binary-compatibility:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          fetch-tags: true
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -93,14 +97,17 @@ jobs:
         with:
           java-version: 17
           distribution: 'temurin'
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
       - run: ./mill site.siteGen
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - uses: actions/upload-artifact@v3
         with:
           name: page
-          path: out/site/siteGen.dest/
+          path: out/site/siteGen.dest/site
           if-no-files-found: error
 
   deploy:

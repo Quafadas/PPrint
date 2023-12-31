@@ -9,4 +9,6 @@ PPrint [![Gitter Chat][gitter-badge]][gitter-link]
 
 *A Scala library to pretty-print values and types*
 
-[Documentation](https://com-lihaoyi.github.io/PPrint/)
+[Real Documentation](https://com-lihaoyi.github.io/PPrint/)
+
+

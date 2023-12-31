@@ -1,7 +1,7 @@
 import mill._, scalalib._, scalajslib._, scalanativelib._, publish._
 import $ivy.`de.tototec::de.tobiasroeser.mill.vcs.version::0.4.0`
 import $ivy.`com.github.lolgab::mill-mima::0.0.23`
-import $ivy.`io.github.quafadas::mill_scala3_site_mdoc::0.0.5`
+import $ivy.`io.github.quafadas::mill_scala3_site_mdoc::0.0.9`
 import de.tobiasroeser.mill.vcs.version.VcsVersion
 import com.github.lolgab.mill.mima._
 import mill.site.SiteModule
@@ -69,6 +69,17 @@ object pprint extends Module {
 
 object site extends SiteModule {
 
+ def latestVersion = T{VcsVersion.vcsState().lastTag.getOrElse("0.0.0").replace("v", "")}
+
+ def scalaVersion = scalaVersions.find(_.startsWith("3")).get
+
   override def moduleDeps = Seq(pprint.jvm("3.3.1"))
+
+  override def scalaDocOptions = super.scalaDocOptions() ++  Seq(
+    "-scastie-configuration", s"""libraryDependencies += "com.lihaoyi" %% "pprint" % "${latestVersion()}"}"""",
+    "-project", "pprint",
+    "-project-version", latestVersion(),
+    s"-social-links:github::${pprint.jvm("3.3.1").pomSettings().url}"
+  )
 
 }
