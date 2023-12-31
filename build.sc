@@ -4,7 +4,7 @@ import $ivy.`com.github.lolgab::mill-mima::0.0.23`
 import $ivy.`io.github.quafadas::mill_scala3_site_mdoc::0.0.9`
 import de.tobiasroeser.mill.vcs.version.VcsVersion
 import com.github.lolgab.mill.mima._
-import mill.site.SiteModule
+import millSite.SiteModule
 import mill.api.Result
 
 val dottyCommunityBuildVersion = sys.props.get("dottyVersion").toList
@@ -76,7 +76,7 @@ object site extends SiteModule {
   override def moduleDeps = Seq(pprint.jvm("3.3.1"))
 
   override def scalaDocOptions = super.scalaDocOptions() ++  Seq(
-    "-scastie-configuration", s"""libraryDependencies += "com.lihaoyi" %% "pprint" % "${latestVersion()}"}"""",
+    "-scastie-configuration", s"""libraryDependencies += "com.lihaoyi" %% "pprint" % "${latestVersion()}" """,
     "-project", "pprint",
     "-project-version", latestVersion(),
     s"-social-links:github::${pprint.jvm("3.3.1").pomSettings().url}"
