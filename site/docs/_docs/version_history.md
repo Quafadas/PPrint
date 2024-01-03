@@ -4,22 +4,22 @@ title: Version History
 
 ## 0.7.3
 
-Add support for Polytypes [79](https://github.com/com-lihaoyi/PPrint/pull/79")
+Add support for Polytypes [79](https://github.com/com-lihaoyi/PPrint/pull/79)
 
 ## 0.7.2
 Support Scala Native on Scala 3
-[75](https://github.com/com-lihaoyi/PPrint/pull/77")
+[75](https://github.com/com-lihaoyi/PPrint/pull/77)
 
 ## 0.7.1
-Fixes for pprinting and tprinting literal constants [75](https://github.com/com-lihaoyi/PPrint/pull/75")
+Fixes for pprinting and tprinting literal constants [75](https://github.com/com-lihaoyi/PPrint/pull/75)
 ## 0.7.0
-Overhaul and simplify TPrint implementation [72](https://github.com/com-lihaoyi/PPrint/pull/72")
+Overhaul and simplify TPrint implementation [72](https://github.com/com-lihaoyi/PPrint/pull/72)
 
-Fix PPrint for Product2 [36](https://github.com/com-lihaoyi/PPrint/pull/36")
+Fix PPrint for Product2 [36](https://github.com/com-lihaoyi/PPrint/pull/36)
 
-Make PPrint robust against `toString` returning `null` [70](https://github.com/com-lihaoyi/PPrint/pull/70")
+Make PPrint robust against `toString` returning `null` [70](https://github.com/com-lihaoyi/PPrint/pull/70)
 
-Add flag to control unicode escaping [71](https://github.com/com-lihaoyi/PPrint/pull/71")
+Add flag to control unicode escaping [71](https://github.com/com-lihaoyi/PPrint/pull/71)
 ## 0.6.0
 Add support for field names when printing case classes in Scala 2.13
 
@@ -65,8 +65,8 @@ slower than `.toString`, but that sure beats being 10,000x slower!
 
 
 If you've enjoyed using PPrint or any of my other libraries, please
-consider [chipping in](https://www.patreon.com/lihaoyi") to support
-their ongoing development on [Patreon](https://www.patreon.com/lihaoyi")!
+consider [chipping in](https://www.patreon.com/lihaoyi) to support
+their ongoing development on [Patreon](https://www.patreon.com/lihaoyi)!
 Any amount helps ensure we can continue improving these libraries going forward.
 
 

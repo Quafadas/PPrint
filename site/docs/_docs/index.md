@@ -1,9 +1,5 @@
----
-title: PPrint
----
-# PPrint
 
-PPrint is a module that lets you easily print data structures in a form that is more convenient to use both visually and programmatically.
+[[pprint|../pprint.html]] is a module that lets you easily print data structures in a form that is more convenient to use both visually and programmatically.
 
 ![intro](../_assets/images/Example.png)
 
