@@ -62,4 +62,4 @@ fi
 unset MILL_DOWNLOAD_PATH
 unset MILL_VERSION
 
-exec $MILL_EXEC_PATH $MILL_FIRST_ARG -D "mill.main.cli=${MILL_MAIN_CLI}" "$@"
+exec $MILL_EXEC_PATH $MILL_FIRST_ARG -D "mill.main.cli=${MILL_MAIN_CLI}" -j 0 "$@"

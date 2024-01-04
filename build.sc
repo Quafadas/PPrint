@@ -1,10 +1,10 @@
 import mill._, scalalib._, scalajslib._, scalanativelib._, publish._
 import $ivy.`de.tototec::de.tobiasroeser.mill.vcs.version::0.4.0`
 import $ivy.`com.github.lolgab::mill-mima::0.0.23`
-import $ivy.`io.github.quafadas::millSite::0.0.11`
+import $ivy.`io.github.quafadas::millSite::0.0.14`
 import de.tobiasroeser.mill.vcs.version.VcsVersion
 import com.github.lolgab.mill.mima._
-import millSite.SiteModule
+import io.github.quafadas.millSite.SiteModule
 import mill.api.Result
 
 val dottyCommunityBuildVersion = sys.props.get("dottyVersion").toList
