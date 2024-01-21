@@ -73,6 +73,4 @@ object site extends SiteModule {
 
   override def moduleDeps = Seq(pprint.jvm("3.3.1"))
 
-  // override def scalaDocOptions = super.scalaDocOptions().dropRight(1) // ++ Seq("-source-links:docs=github://com-lihaoyi/PPrint")
-
 }
