@@ -25,7 +25,6 @@ using dep com.lihaoyi::pprint::0.7.0
 pprint.pprintln(new Object())
 ```
 
-
 The above example then showed how to use the default pprint configuration. You can also set up your own custom implicit `pprint.Config` if you want to control e.g. colors, width, or max-height of the output.
 
 The three main methods you need to care about are:
